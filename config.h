@@ -370,6 +370,23 @@
     #define XTAL12M     1
 
 
+#elif defined TARGET_GPSLOGGER_F103_PB14
+
+    #define LED_BANK            GPIOB
+    #define LED_PIN             14
+    #define LED_ON_STATE        0
+
+    #define BUTTON_INPUT_MODE 	CR_INPUT_PU_PD
+    #define BUTTON_BANK GPIOB
+    #define BUTTON_PIN 13
+    #define BUTTON_PRESSED_STATE 1
+
+    #define HAS_MAPLE_HARDWARE 1
+
+    /* USB Disc Pin Setup.   USB DISC is PC6 */
+    #define USB_DISC_BANK       GPIOC
+    #define USB_DISC_PIN            6
+
 #else
     #error "No config for this target"
 #endif

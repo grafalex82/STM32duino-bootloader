@@ -136,6 +136,7 @@ hytiny-stm32f103t: begin clean gccversion build_hytiny-stm32f103t sizeafter fini
 dso138: begin clean gccversion build_dso138 sizeafter finished  copy_dso138 end
 gd32f1-generic-pc13: begin clean gccversion build_gd32f1-generic-pc13 sizeafter finished  copy_gd32f1-generic-pc13 end
 gd32f1-frankenmaple: begin clean gccversion build_gd32f1-frankenmaple sizeafter finished  copy_gd32f1-frankenmaple end
+gpslogger-pb14: begin clean gccversion build_gpslogger-pb14 sizeafter finished  copy_gpslogger-pb14 end
 
 build: elf bin lss sym
 
@@ -185,6 +186,19 @@ copy_generic-pc13:
 	@echo
 	cp $(TARGET).bin bootloader_only_binaries/generic_boot20_pc13.bin
 	@echo
+
+
+build_gpslogger-pb14: TARGETFLAGS= -DTARGET_GPSLOGGER_F103_PB14 $(DEFINES)
+# Set the linker script
+build_gpslogger-pb14: LDFLAGS +=-T$(ST_LIB)/c_only_md_high_density.ld
+build_gpslogger-pb14: elf bin lss sym
+copy_gpslogger-pb14:
+	@echo
+	@echo "Copying to binaries folder"
+	@echo
+	cp $(TARGET).bin bootloader_only_binaries/gpslogger_boot20_pb14.bin
+	@echo
+
 
 build_generic-pg15: TARGETFLAGS= -DTARGET_GENERIC_F103_PG15 $(DEFINES)
 # Set the linker script
