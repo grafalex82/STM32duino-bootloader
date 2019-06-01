@@ -373,7 +373,7 @@
 #elif defined TARGET_GPSLOGGER_F103_PB14
 
     #define LED_BANK            GPIOB
-    #define LED_PIN             14
+    #define LED_PIN             15
     #define LED_ON_STATE        0
 
     #define BUTTON_INPUT_MODE 	CR_INPUT_PU_PD
