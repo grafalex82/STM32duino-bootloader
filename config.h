@@ -376,9 +376,9 @@
     #define LED_PIN             15
     #define LED_ON_STATE        0
 
-    #define BUTTON_INPUT_MODE 	CR_INPUT_PU_PD
+    #define BUTTON_INPUT_MODE 	CR_INPUT
     #define BUTTON_BANK GPIOB
-    #define BUTTON_PIN 13
+    #define BUTTON_PIN 10
     #define BUTTON_PRESSED_STATE 1
 
     #define HAS_MAPLE_HARDWARE 1
