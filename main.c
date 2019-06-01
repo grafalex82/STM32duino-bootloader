@@ -58,6 +58,7 @@ int main()
         default:
 			#ifdef FASTBOOT
 				dont_wait=TRUE;
+				strobePin(LED_BANK, LED_PIN, STARTUP_BLINKS, BLINK_FAST,LED_ON_STATE);
 			#else
 				strobePin(LED_BANK, LED_PIN, STARTUP_BLINKS, BLINK_FAST,LED_ON_STATE);
 			#endif            
@@ -67,7 +68,7 @@ int main()
             }
             else if (readButtonState())
             {
-				no_user_jump = TRUE;
+				//no_user_jump = TRUE;
 				#ifdef FASTBOOT
 					dont_wait=FALSE;
 				#endif

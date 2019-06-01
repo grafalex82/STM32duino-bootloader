@@ -387,6 +387,8 @@
     #define USB_DISC_BANK       GPIOC
     #define USB_DISC_PIN            6
 
+    #define FASTBOOT                1
+
 #else
     #error "No config for this target"
 #endif
