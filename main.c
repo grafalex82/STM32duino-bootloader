@@ -41,6 +41,13 @@ int main()
     bool dont_wait=FALSE;
 
     systemReset(); // peripherals but not PC
+
+#if defined(TARGET_GPSLOGGER_F103_PB14)
+    SET_REG(GPIO_CR(POWER_HOLD_BANK, POWER_HOLD_PIN), (GET_REG(GPIO_CR(POWER_HOLD_BANK, POWER_HOLD_PIN)) & crMask(POWER_HOLD_PIN)) | CR_OUTPUT_PP << CR_SHITF(POWER_HOLD_PIN));
+    gpio_write_bit(POWER_HOLD_BANK, POWER_HOLD_PIN, 1);  /* Enable power from the power controller */
+#endif
+
+
     setupCLK();
     setupLEDAndButton();
     setupUSB();

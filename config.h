@@ -381,6 +381,9 @@
     #define BUTTON_PIN 10
     #define BUTTON_PRESSED_STATE 1
 
+    #define POWER_HOLD_BANK     GPIOB
+    #define POWER_HOLD_PIN      1
+
     #define HAS_MAPLE_HARDWARE 1
 
     /* USB Disc Pin Setup.   USB DISC is PC6 */

@@ -157,6 +157,11 @@ void setupLEDAndButton (void) {
     gpio_write_bit(BUTTON_BANK, BUTTON_PIN,1-BUTTON_PRESSED_STATE);// set pulldown resistor in case there is no button.
 #endif
     SET_REG(GPIO_CR(LED_BANK,LED_PIN),(GET_REG(GPIO_CR(LED_BANK,LED_PIN)) & crMask(LED_PIN)) | CR_OUTPUT_PP << CR_SHITF(LED_PIN));
+
+#if defined(TARGET_GPSLOGGER_F103_PB14)
+    SET_REG(GPIO_CR(POWER_HOLD_BANK, POWER_HOLD_PIN), (GET_REG(GPIO_CR(POWER_HOLD_BANK, POWER_HOLD_PIN)) & crMask(POWER_HOLD_PIN)) | CR_OUTPUT_PP << CR_SHITF(POWER_HOLD_PIN));
+    gpio_write_bit(POWER_HOLD_BANK, POWER_HOLD_PIN, 1);  /* Enable power from the power controller */
+#endif
 }
 
 void setupFLASH() {
